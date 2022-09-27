@@ -10,14 +10,14 @@ public class Task3 {
             System.out.println("Если в вагон зайдет " + totalPass +
                 " человека, то сидячих мест останется " + (wagonSeating - totalPass));
         }
-        if (totalPass >= wagonSeating) {
+        else if (totalPass >= wagonSeating) {
                 if (totalPass < trainWagonCapacity)
             System.out.println("Если в вагон зайдет " + totalPass +
                 " человек, то останется " + (wagonSeating - (totalPass - wagonStanding)) + " стоячих места.");
-        }
-        if (totalPass >= trainWagonCapacity) {
-            System.out.println("Если в вагон зайдет " + totalPass +
-                    " человека, то мест в вагоне не останется.");
+        else if (totalPass >= trainWagonCapacity) {
+                    System.out.println("Если в вагон зайдет " + totalPass +
+                            " человека, то мест в вагоне не останется.");
+            }
         }
     }
 }
