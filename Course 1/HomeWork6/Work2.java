@@ -2,6 +2,7 @@ package HomeWork6;
 
 public class Work2 {
     public static void main(String[] args) {
+
         task1();
         task2();
         task3();

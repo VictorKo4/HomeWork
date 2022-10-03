@@ -16,6 +16,7 @@ public class Work3 {
     }
 
     public static void task2() {
+
         System.out.println("Задача 2");
         int contribution = 29_000;
         float amountOfSavings = 0;
