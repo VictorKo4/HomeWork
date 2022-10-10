@@ -6,7 +6,6 @@ public class Task4 {
         num1[0] = 1;
         num1[1] = 2;
         num1[2] = 3;
-
         for (int i = 0; i < num1.length; i++) {
             if (num1[i] % 2 == 0) {
                 System.out.println(num1[i]);
