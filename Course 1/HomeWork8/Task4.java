@@ -8,9 +8,12 @@ public class Task4 {
         num1[2] = 3;
 
         for (int i = 0; i < num1.length; i++) {
-            if (i % 2 == 0)
-            num1[i] = num1[i] + 1;
-            System.out.println(num1[i]);
+            if (num1[i] % 2 == 0) {
+                System.out.println(num1[i]);
+            } else {
+                num1[i] = num1[i] + 1;
+                System.out.println(num1[i]);
+            }
         }
     }
 }
