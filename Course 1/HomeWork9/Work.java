@@ -1,7 +1,6 @@
 package HomeWork9;
 
 public class Work {
-    int[] arr = generateRandomArray();
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
         int[] arr = new int[30];
@@ -19,11 +18,9 @@ public class Work {
     }
     public static void task1() {
         System.out.println("Задача 1");
-        java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
+        int[] arr = generateRandomArray();
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
             sum = sum + arr[i];
         }
         System.out.println("Сумма трат за месяц составила " + sum + " рублей");
@@ -31,12 +28,10 @@ public class Work {
 
     public static void task2() {
         System.out.println('\n' + "Задача 2");
-        java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
+        int[] arr = generateRandomArray();
         int minSpendDay = 200_001;
         int maxSpendDay = 99_999;
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
             if (arr[i] < minSpendDay) {
                 minSpendDay = arr[i];
             }
@@ -50,12 +45,10 @@ public class Work {
 
     public static void task3() {
         System.out.println('\n' + "Задача 3");
-        java.util.Random random = new java.util.Random();
-        float[] arr = new float[30];
+        int[] arr = generateRandomArray();
         float sum = 0f;
         float averageSpendDay = 0f;
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
             sum = sum + arr[i];
             averageSpendDay = sum / arr.length;
         }
