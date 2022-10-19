@@ -3,7 +3,7 @@ package HomeWork11;
 import java.time.LocalDate;
 
 public class Work {
-    public static void outputYear (int year) {
+    public static void checkLeapYear (int year) {
         if (year % 400 == 0) {
             System.out.println(year + " год является високосный");
         } else if (year % 100 == 0) {
@@ -29,7 +29,7 @@ public class Work {
         }
     }
 
-    public static int DeliveryDays(int deliveryDistance) {
+    public static int getDeliveryDays(int deliveryDistance) {
         int deliveryDay = 1;
         if (deliveryDistance <= 20) {
         } else if (deliveryDistance <= 60) {
@@ -49,7 +49,7 @@ public class Work {
     }
     public static void task1() {
         System.out.println("Задача 1");
-        outputYear(2022);
+        checkLeapYear(2022);
     }
 
     public static void task2() {
@@ -60,7 +60,7 @@ public class Work {
 
     public static void task3() {
         System.out.println('\n' + "Задача 3");
-        int days = DeliveryDays(95);
+        int days = getDeliveryDays(95);
         System.out.println("Потребуется дней: " + days);
     }
 }
