@@ -9,7 +9,7 @@ public class Work {
         }
         return arr;
     }
-
+    static int[] arr = generateRandomArray();
     public static void main(String[] args) {
         task1();
         task2();
@@ -18,7 +18,6 @@ public class Work {
     }
     public static void task1() {
         System.out.println("Задача 1");
-        int[] arr = generateRandomArray();
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
@@ -28,7 +27,6 @@ public class Work {
 
     public static void task2() {
         System.out.println('\n' + "Задача 2");
-        int[] arr = generateRandomArray();
         int minSpendDay = 200_001;
         int maxSpendDay = 99_999;
         for (int i = 0; i < arr.length; i++) {
@@ -45,7 +43,6 @@ public class Work {
 
     public static void task3() {
         System.out.println('\n' + "Задача 3");
-        int[] arr = generateRandomArray();
         float sum = 0f;
         float averageSpendDay = 0f;
         for (int i = 0; i < arr.length; i++) {
