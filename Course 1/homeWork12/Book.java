@@ -11,18 +11,23 @@ public class Book {
         this.yearPublishing = yearPublishing;
         this.fullName = fullName;
     }
+
     public String getBookName() {
         return this.bookName;
     }
+
     public int getYearPublishing() {
         return this.yearPublishing;
     }
+
     public String getAuthorName() {
         return this.fullName.getFullName();
     }
+
     public void setYearPublishing(int yearPublishing) {
         this.yearPublishing = yearPublishing;
     }
+
     public String toString() {
         return "Книга - " + bookName + '\n' +
                 "Год публикации - " + yearPublishing + '\n' +

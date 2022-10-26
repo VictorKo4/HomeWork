@@ -11,15 +11,19 @@ public class Author {
         this.lastName = lastName;
         this.fullName = firstName + " " + lastName;
     }
+
     public String getFirstName() {
         return this.firstName;
     }
+
     public String getLastName() {
         return this.lastName;
     }
+
     public String getFullName() {
         return this.fullName;
     }
+
     public String toString() {
         return firstName + " " + lastName;
     }

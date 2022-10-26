@@ -9,6 +9,7 @@ public class App {
         System.out.println("Год публикации - " + book.getYearPublishing());
         System.out.println("Автор - " + author);
 
+
         author = new Author("King", "Steven");
         book = new Book("It", 1986, author);
         System.out.println();
