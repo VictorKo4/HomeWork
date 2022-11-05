@@ -16,10 +16,9 @@ public class Main {
     public static void listOfAllEmployees() {
         System.out.println("Список сотрудников:");
         for (Employee list : employee) {
-            if (list == null) {
-                break;
+            if (list != null) {
+                System.out.println(list);
             }
-            System.out.println(list);
         }
     }
 
@@ -27,65 +26,47 @@ public class Main {
         System.out.println();
         float sum = 0;
         for (Employee i : employee) {
-            if (i == null) {
-                break;
+            if (i != null) {
+                sum += i.getSalary();
             }
-            sum += i.salary;
         }
         System.out.println("Сумма затрат на зарплаты: " + sum);
     }
 
     public static void minSalaryEmployee() {
-        float minSum = 1_000_000;
-        String fullName = null;
-        int dept = 0;
-        int id = 0;
+        Employee employeeWithMinSalary = null;
         for (Employee i : employee) {
-            if (i == null) {
-                break;
-            } else if (i.salary < minSum) {
-                minSum = i.salary;
-                fullName = i.fullName;
-                dept = i.dept;
-                id = i.id;
+            if (i != null) {
+                if (employeeWithMinSalary == null || i.getSalary() < employeeWithMinSalary.getSalary()) {
+                    employeeWithMinSalary = i;
+                }
             }
         }
-        System.out.println('\n' + "Сотрудник с минимальной ЗП: " + '\n' +
-                fullName + " --- id: " + id + '\n' + "Отдел №" + dept + ", зарплата = " + minSum);
+        System.out.println('\n' + "Сотрудник с минимальной ЗП: " + employeeWithMinSalary);
     }
 
     public static void maxSalaryEmployee() {
-        float maxSum = 0;
-        String fullName = null;
-        int dept = 0;
-        int id = 0;
+        Employee employeeWithMaxSalary = null;
         for (Employee i : employee) {
-            if (i == null) {
-                break;
-            } else if (i.salary > maxSum) {
-                maxSum = i.salary;
-                fullName = i.fullName;
-                dept = i.dept;
-                id = i.id;
+            if (i != null) {
+                if (employeeWithMaxSalary == null || i.getSalary() > employeeWithMaxSalary.getSalary()) {
+                    employeeWithMaxSalary = i;
+                }
             }
         }
-        System.out.println('\n' + "Сотрудник с максимальной ЗП: " + '\n' +
-                fullName + " --- id: " + id + '\n' + "Отдел №" + dept + ", зарплата = " + maxSum);
+        System.out.println('\n' + "Сотрудник с максимальной ЗП: " + employeeWithMaxSalary);
     }
 
     public static void averageValueOfSalaries() {
         float sum = 0;
         int dept = 0;
-        float averageValue = 0;
         for (Employee i : employee) {
-            if (i == null) {
-                break;
+            if (i != null) {
+                sum += i.getSalary();
+                dept = i.getDept();
             }
-            sum += i.salary;
-            dept = i.dept;
-            averageValue = sum / dept;
         }
-        System.out.printf('\n' + "Средняя сумма на зарплаты: " + "%.2f",averageValue);
+        System.out.printf('\n' + "Средняя сумма на зарплаты: " + "%.2f",sum / dept);
     }
 
     public static void listOfEmployees() {
@@ -93,11 +74,10 @@ public class Main {
         System.out.println("Список сотрудников:");
         String fullName;
         for (Employee i : employee) {
-            if (i == null) {
-                break;
+            if (i != null) {
+                fullName = i.getFullName();
+                System.out.println("Сотрудник - " + fullName);
             }
-            fullName = i.fullName;
-            System.out.println("Сотрудник - " + fullName);
         }
     }
 

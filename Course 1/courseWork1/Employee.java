@@ -2,14 +2,14 @@ package courseWork1;
 
 public class Employee {
 
-    String firstName;
-    String middleName;
-    String lastName;
-    String fullName;
-    int dept;
-    float salary;
-    static int counter;
-    int id;
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
+    private final String fullName;
+    private int dept;
+    private float salary;
+    private static int counter;
+    private final int id;
 
 
     public Employee(String lastName, String firstName, String middleName, float salary, int dept) {
