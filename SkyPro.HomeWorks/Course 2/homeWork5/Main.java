@@ -42,6 +42,18 @@ public class Main {
         System.out.println();
     }
 
+    private static void service(Transport... transports) {
+        for (Transport transport : transports) {
+            if (!transport.diagnostics()) {
+                try {
+                    throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " проходит диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         car();
         truck();
@@ -56,5 +68,9 @@ public class Main {
         nik.drive(new Bus("ЛиАЗ", "5256", 6.7, Transfers.Capacity.MIDDLE));
         System.out.println();
 
+        Car lada = new Car("Lada", "Priora",1.6, Transfers.Body.SEDAN);
+        Truck kamaz = new Truck("KamAZ", "740", 10.8, Transfers.Weight.N2);
+        Bus liaz = new Bus("ЛиАЗ", "5256", 6.7, Transfers.Capacity.MIDDLE);
+        service(lada, kamaz, liaz);
     }
 }

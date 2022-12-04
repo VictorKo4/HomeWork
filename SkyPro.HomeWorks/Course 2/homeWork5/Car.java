@@ -15,6 +15,12 @@ public class Car extends Transport implements Competing {
     public Car(){}
 
     @Override
+    public boolean diagnostics() {
+        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику");
+        return true;
+    }
+
+    @Override
     public void printType() {
         if (body == null) {
             System.out.println("Данных недостаточно");
