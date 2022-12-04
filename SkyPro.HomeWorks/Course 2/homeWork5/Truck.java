@@ -16,6 +16,11 @@ public class Truck extends Transport implements Competing {
     public Truck() {}
 
     @Override
+    public boolean diagnostics() {
+        return false;
+    }
+
+    @Override
     public void printType() {
         if (weight == null) {
             System.out.println("Данных недостаточно");

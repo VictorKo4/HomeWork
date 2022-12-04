@@ -15,6 +15,8 @@ public abstract class Transport {
 
     }
 
+    public abstract boolean diagnostics();
+
     public abstract void printType();
 
     public abstract void start();

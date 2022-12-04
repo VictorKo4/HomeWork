@@ -37,7 +37,7 @@ public class Driver <T extends Transport> {
 
     public String getLicense() {
         if (license == null || license.isEmpty() || license.isBlank()) {
-            license = "Не указано";
+            throw new IllegalArgumentException("Категория прав не указана");
         }
         return license;
     }
