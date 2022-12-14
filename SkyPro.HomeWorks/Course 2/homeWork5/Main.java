@@ -1,6 +1,8 @@
 package homeWork5;
 
 
+import java.util.List;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class Main {
     public static void car() {
@@ -55,22 +57,56 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        car();
-        truck();
-        bus();
+        //car();
+        //truck();
+        //bus();
 
-        Driver<Car> petr = new Driver<>("Петр", "B", 10);
-        Driver<Truck> ivan = new Driver<>("Иван", "C", 8);
-        Driver<Bus> nik = new Driver<>("Николай", "D", 12);
+        //Driver<Car> petr = new Driver<>("Петр", "B", 10);
+        //Driver<Truck> ivan = new Driver<>("Иван", "C", 8);
+        //Driver<Bus> nik = new Driver<>("Николай", "D", 12);
 
-        petr.drive(new Car("Lada", "Priora", 1.6, Transfers.Body.SEDAN));
-        ivan.drive(new Truck("KamAZ", "740", 10.8, Transfers.Weight.N2));
-        nik.drive(new Bus("ЛиАЗ", "5256", 6.7, Transfers.Capacity.MIDDLE));
-        System.out.println();
+        //petr.drive(new Car("Lada", "Priora", 1.6, Transfers.Body.SEDAN));
+        //ivan.drive(new Truck("KamAZ", "740", 10.8, Transfers.Weight.N2));
+        //nik.drive(new Bus("ЛиАЗ", "5256", 6.7, Transfers.Capacity.MIDDLE));
+        //System.out.println();
 
         Car lada = new Car("Lada", "Priora",1.6, Transfers.Body.SEDAN);
         Truck kamaz = new Truck("KamAZ", "740", 10.8, Transfers.Weight.N2);
         Bus liaz = new Bus("ЛиАЗ", "5256", 6.7, Transfers.Capacity.MIDDLE);
-        service(lada, kamaz, liaz);
+
+        //service(lada, kamaz, liaz);
+
+        Mechanic<Car> vova = new Mechanic<>("Владимир", "Силиванов", "С-упер Т-ех О-бслуга");
+        Sponsor kent = new Sponsor("Кент", 1000);
+
+        Mechanic<Transport> anton = new Mechanic<>("Антон", "Антонов", "КамазСервис");
+        Sponsor gazProm = new Sponsor("ГазПром", 1_000_000);
+
+        Mechanic<Bus> gosha = new Mechanic<>("Григорий", "Рукоделов", "BusBoosT");
+        Sponsor rus = new Sponsor("РосДор", 100_000);
+
+        lada.addDriver(new Driver<>("Петр", "B", 10));
+        lada.addMechanic(vova);
+        lada.addSponsor(kent);
+
+        kamaz.addDriver(new Driver<>("Иван", "C", 8));
+        kamaz.addMechanic(anton);
+        kamaz.addSponsor(gazProm);
+
+        liaz.addDriver(new Driver<>("Николай", "D", 12));
+        liaz.addMechanic(gosha);
+        liaz.addSponsor(rus);
+
+        List<Transport> transports = List.of(lada,kamaz,liaz);
+        for (Transport transport : transports) {
+            System.out.println("Водитель " + transport + " " + transport.getDrivers() + '\n' +
+                    "Обслуживает механик " + transport.getMechanics() + '\n' +
+                    "Спонсируется заезд фирмой: " + transport.getSponsors() + '\n');
+        }
+
+        ServiceStation<Transport> inspection = new ServiceStation<>();
+        inspection.addTransport(lada);
+        inspection.addTransport(kamaz);
+        inspection.inspection();
     }
 }
