@@ -56,4 +56,9 @@ public class Driver <T extends Transport> {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
