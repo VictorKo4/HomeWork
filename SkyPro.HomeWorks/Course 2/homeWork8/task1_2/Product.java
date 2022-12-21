@@ -1,8 +1,6 @@
 package homeWork8.task1_2;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Product {
 
@@ -18,13 +16,13 @@ public class Product {
 
     public Product(){}
 
-    public static Set<Product> products = new HashSet<>();
+    public static HashMap<Product, Integer> products = new HashMap<>();
 
     public void add(Product product) {
-        if (products.contains(product)) {
+        if (products.containsKey(product)) {
             throw new IllegalArgumentException("Такой продукт уже есть!");
         } else {
-            products.add(product);
+            products.put(product, getWeight());
         }
     }
 
