@@ -1,9 +1,6 @@
 package homeWork8.task1_2;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipes extends Product {
 
@@ -20,13 +17,16 @@ public class Recipes extends Product {
 
     public Recipes(){}
 
-    public static Set<Recipes> recipes = new HashSet<>();
+    public static HashMap<Product, Integer> recipes = new HashMap<>();
 
-    public void add(Recipes recipe) {
-        if (recipes.contains(recipe)) {
-            throw new IllegalArgumentException("Такой рецепт уже есть!");
+    public void add(Product product) {
+        if (product == null) {
+            return;
+        } if (products.containsKey(product)){
+            Integer prodCount = products.get(product);
+            products.put(product, ++prodCount);
         } else {
-            recipes.add(recipe);
+            products.put(product, 1);
         }
     }
 
@@ -42,7 +42,11 @@ public class Recipes extends Product {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        double sum = 0;
+        for (Map.Entry<Product, Integer> product : products.entrySet()) {
+            sum += product.getKey().getPrice() * product.getValue();
+        }
+        return sum;
     }
 
     @Override
