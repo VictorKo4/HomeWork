@@ -1,5 +1,9 @@
 package homeWork5;
 
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 public class Mechanic<T extends Transport> {
 
     private final String name;
@@ -11,6 +15,8 @@ public class Mechanic<T extends Transport> {
         this.surname = surname;
         this.company = company;
     }
+
+    public static Set<Mechanic> mechanics = new HashSet<>();
 
     public boolean service(T t) {
        return t.diagnostics();
@@ -35,5 +41,18 @@ public class Mechanic<T extends Transport> {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return name.equals(mechanic.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
